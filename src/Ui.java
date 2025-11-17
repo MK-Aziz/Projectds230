@@ -35,10 +35,10 @@ public class Ui {
                         System.out.println("\n--- Add New Student ---");
 
                         System.out.print("Enter name: ");
-                        String name = scanner.nextLine();
+                        String student_name = scanner.nextLine();
 
                         System.out.print("Enter ID: ");
-                        int id = scanner.nextInt();
+                        int student_Id = scanner.nextInt();
                         scanner.nextLine(); // Consume newline
 
                         System.out.print("Enter course: ");
@@ -55,19 +55,52 @@ public class Ui {
                         } while (grade < 0 || grade > 100);
 
                         // Create and add the student
-                        Student newStudent = new Student(name, id, course, grade);
+                        Student newStudent = new Student(student_name, student_Id, course, grade);
                         universityRecords.add(newStudent);
                         System.out.println("Student added successfully.");
                         break; // Exit the switch
 
                     // --- CASE 2: ADD FULL-TIME EMPLOYEE ---
+
                     case 2:
-                        System.out.println("[Stub] Add Full-Time Employee - Not implemented yet.");
+                        // I modified here to add the full time employee string instead of add
+                        System.out.println("\n--- Add Full-Time Employee ---");
+
+                        System.out.print("Enter employee name: ");
+                        String ft_name = scanner.nextLine();
+
+                        System.out.print("Enter ID: ");
+                        int ft_id = scanner.nextInt();
+
+                        double salary;
+                        do {
+                            System.out.print("Enter Monthly Salary: ");
+                             salary = scanner.nextDouble();
+
+                            if ( salary < 0){
+                                System.out.println("Please enter a positive salary :)");
+                            }
+                        } while ( salary < 0);
+
+
+                        scanner.nextLine();
+
+                        universityRecords.add(new FullTimeEmployee(ft_name, ft_id, salary));
+                        System.out.println("Full-time employee added!");
                         break; // Exit the switch
 
                     // --- CASE 3: ADD PART-TIME EMPLOYEE ---
                     case 3:
-                        System.out.println("[Stub] Add Part-Time Employee - Not implemented yet.");
+
+                        System.out.print("Enter Name: ");
+                        String pt_name = scanner.nextLine();
+                        System.out.print("Enter ID: ");
+                        int pt_id = scanner.nextInt();
+                        System.out.print("Enter Hourly Rate: ");
+                        double rate = scanner.nextDouble();
+                        System.out.print("Enter Hours Worked: ");
+                        int hours = scanner.nextInt();
+                        scanner.nextLine();
                         break; // Exit the switch
 
                     // --- CASE 4: DISPLAY ALL RECORDS ---
