@@ -6,13 +6,13 @@ public class FullTimeEmployee extends Employee {
         this.monthlySalary = monthlySalary;
     }
 
-    public double getMonthlySalary() {
+    /*public double getMonthlySalary() {
         return monthlySalary;
     }
 
     public void setMonthlySalary(double monthlySalary) {
         this.monthlySalary = monthlySalary;
-    }
+    }*/
 
     @Override
     public double calculateSalary() {
@@ -22,9 +22,9 @@ public class FullTimeEmployee extends Employee {
     @Override
     public void displayDetails() {
         System.out.println(
-            "Full-Time Employee | Name: " + getName() +
-            " | ID: " + getId() +
-            " | Monthly Salary: " + calculateSalary()
+            "Full-Time Employee | Name: " + getName()  +
+            "| ID: " + getId() +
+            "|Monthly Salary: " + calculateSalary()
         );
     }
 }

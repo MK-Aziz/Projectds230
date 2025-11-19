@@ -22,6 +22,8 @@ public abstract class Person {
         return id;
     }
 
+
+    // Here we have a base method that behaves differently for each time it is in different object
     public abstract void displayDetails();
 
 
