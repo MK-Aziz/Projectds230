@@ -1,5 +1,11 @@
 public abstract class Person {
 
+    /*
+    This is the parent class Person which all other subclasses inherit from
+
+     */
+
+    //Those are the attributes as requested by the project for name and id
     public String name;
     public int id;
 
