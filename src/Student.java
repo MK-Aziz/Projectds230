@@ -20,14 +20,17 @@ public class Student extends Person {
     }
 
     public void displayDetails() {
-        System.out.println("---Student Record---");
-        System.out.println("Name: " + name);
-        System.out.println("ID: " + id);
-        System.out.println("Course: " + course);
-        System.out.println("Grade: " + grade);
+        System.out.println(
+                "Student Record " +
+                "| Name: " + name +
+                "| ID: " + id +
+                "| Course: " + course +
+                "| Grade: " + grade
+        );
 
         String status = isPass() ? "Pass" : "Fail";
         System.out.println("Status: " + status);
+        System.out.println(" ");
         }
 
 

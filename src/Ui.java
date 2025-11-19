@@ -6,31 +6,40 @@ public class Ui {
 
     public static void main(String[] args) {
 
-        // Store all records in one list
+        // Store all record of the system inputs in one list
         ArrayList<Person> universityRecords = new ArrayList<>();
 
-        // Create one scanner for all input
+
+
+        // Create one scanner for all user input
         Scanner scanner = new Scanner(System.in);
 
         // The main menu loop
         while (true) {
 
+            //Printing the options
             System.out.println("--- University Management Menu ---");
             System.out.println("1. Add Student");
-            System.out.println("2. Add Full-time Employee");
-            System.out.println("3. Add Part-time Employee");
+            System.out.println("2. Add Full time Employee");
+            System.out.println("3. Add Part time Employee");
             System.out.println("4. Display All Records");
             System.out.println("5. Exit");
             System.out.print("Please enter your choice (1-5): ");
 
+            // We utilize try catch to catch invalid input
             try {
+
+
                 int choice = scanner.nextInt();
                 scanner.nextLine(); // Consume the newline
 
-                // Handle the user's choice
+                /*
+                 Handle the user's choice
+                For each choice we will invoke the classes and the methods (inheritance)
+                */
                 switch (choice) {
 
-                    // This is the code for adding new student
+                    // Case 1 for adding Student
                     case 1:
                         System.out.println("\n--- Add New Student ---");
 
@@ -60,22 +69,24 @@ public class Ui {
                         System.out.println("Student added successfully.");
                         break; // Exit the switch
 
-                    // --- CASE 2: ADD FULL-TIME EMPLOYEE ---
+                    // Case 2 for adding Full time Employee
 
                     case 2:
                         // I modified here to add the full time employee string instead of add
-                        System.out.println("\n--- Add Full-Time Employee ---");
+                        System.out.println("\n--- Add Full Time Employee ---");
 
-                        System.out.print("Enter employee name: ");
+                        System.out.print("Enter name: ");
                         String ft_name = scanner.nextLine();
 
                         System.out.print("Enter ID: ");
                         int ft_id = scanner.nextInt();
 
+
+                        // This is to validate a positive non zero salary
                         double salary;
                         do {
                             System.out.print("Enter Monthly Salary: ");
-                             salary = scanner.nextDouble();
+                            salary = scanner.nextDouble();
 
                             if ( salary < 0){
                                 System.out.println("Please enter a positive salary :)");
@@ -86,21 +97,37 @@ public class Ui {
                         scanner.nextLine();
 
                         universityRecords.add(new FullTimeEmployee(ft_name, ft_id, salary));
-                        System.out.println("Full-time employee added!");
+                        System.out.println("Full time employee added!");
                         break; // Exit the switch
 
                     // --- CASE 3: ADD PART-TIME EMPLOYEE ---
                     case 3:
+                        System.out.println("\n--- Add Part Time Employee ---");
 
                         System.out.print("Enter Name: ");
                         String pt_name = scanner.nextLine();
                         System.out.print("Enter ID: ");
                         int pt_id = scanner.nextInt();
-                        System.out.print("Enter Hourly Rate: ");
-                        double rate = scanner.nextDouble();
+
+
+                        // This is to validate a positive non zero hourly rate
+                        double hourlyRate;
+                        do {
+                            System.out.print("Enter Hourly Rate: ");
+                            hourlyRate = scanner.nextDouble();
+                            if ( hourlyRate <= 0){
+                                System.out.println("Please enter a positive hourly rate :)");
+                            }
+                        } while ( hourlyRate <= 0);
+
+
                         System.out.print("Enter Hours Worked: ");
-                        int hours = scanner.nextInt();
+                        int hoursWorked = scanner.nextInt();
                         scanner.nextLine();
+
+                        universityRecords.add(new PartTimeEmployee(pt_name, pt_id, hourlyRate,hoursWorked));
+                        System.out.println("Part time employee added!");
+
                         break; // Exit the switch
 
                     // --- CASE 4: DISPLAY ALL RECORDS ---
@@ -128,7 +155,7 @@ public class Ui {
                 }
 
             } catch (InputMismatchException e) {
-                // --- ERROR HANDLING: CATCHES NON-NUMBER INPUT ---
+                //  Error handling: if user enters a non number for menu choice
                 System.out.println("Error: Invalid input. Please enter a number.");
                 scanner.nextLine(); // Clear the bad input
             }
