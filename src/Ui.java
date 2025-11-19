@@ -126,9 +126,20 @@ public class Ui {
                         } while ( hourlyRate <= 0);
 
 
-                        System.out.print("Enter Hours Worked: ");
-                        int hoursWorked = scanner.nextInt();
+                        //validating hours worked a positive non zero
+                        int hoursWorked;
+                        do {
+                            System.out.print("Enter Hours Worked: ");
+                             hoursWorked = scanner.nextInt();
+                            if ( hoursWorked < 0) {
+
+                                System.out.println("Error: Hours cannot be negative.");
+                                System.out.print("Enter Hours Worked: ");
+                                hoursWorked = scanner.nextInt();
+                            }
+                    }   while (hoursWorked < 0);
                         scanner.nextLine();
+
 
                         universityRecords.add(new PartTimeEmployee(pt_name, pt_id, hourlyRate,hoursWorked));
                         System.out.println("Part time employee added!");

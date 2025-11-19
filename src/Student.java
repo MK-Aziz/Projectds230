@@ -22,8 +22,8 @@ public class Student extends Person {
     public void displayDetails() {
         System.out.println(
                 "Student Record " +
-                "| Name: " + name +
-                "| ID: " + id +
+                "| Name: " + getName() +
+                "| ID: " + getId() +
                 "| Course: " + course +
                 "| Grade: " + grade
         );

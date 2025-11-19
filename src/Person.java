@@ -6,8 +6,8 @@ public abstract class Person {
      */
 
     //Those are the attributes as requested by the project for name and id
-    public String name;
-    public int id;
+    private String name;
+    private int id;
 
     public Person(String name, int id){
 
