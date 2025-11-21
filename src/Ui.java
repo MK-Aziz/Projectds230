@@ -1,7 +1,10 @@
+// Importing packages needed for the project
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
+//This is our interface class where we handle the user choice, add persons and show records
 public class Ui {
 
     public static void main(String[] args) {
@@ -9,10 +12,12 @@ public class Ui {
         // Store all record of the system inputs in one list
         ArrayList<Person> universityRecords = new ArrayList<>();
 
-        universityRecords.add(new Student("Ali", 1001, "DS230", 99));
-        universityRecords.add(new Student("Sara", 1002, "SCI101", 49));
-        universityRecords.add(new Student("Fahad", 1003, "MATH150", 92));
-        universityRecords.add(new Student("Noor", 1004, "ISLM101", 95));
+
+        // 4 Sample examples with course names added to the array as requested
+        universityRecords.add(new Student("Abdulaziz Nadreen", 240011833, "DS230", 99));
+        universityRecords.add(new Student("Jehad", 240040810, "SCI101", 100));
+        universityRecords.add(new Student("Rakan", 240050050, "MATH150", 92));
+        universityRecords.add(new Student("Noor", 240689785, "DS231", 49));
 
 
 
@@ -31,7 +36,7 @@ public class Ui {
             System.out.println("5. Exit");
             System.out.print("Please enter your choice (1-5): ");
 
-            // We utilize try catch to catch invalid input
+            // We utilize "try catch" to catch invalid input
             try {
 
 
@@ -105,7 +110,7 @@ public class Ui {
                         System.out.println("Full time employee added!");
                         break; // Exit the switch
 
-                    // --- CASE 3: ADD PART-TIME EMPLOYEE ---
+                    //  Case 3: Add Part Time Employee
                     case 3:
                         System.out.println("\n--- Add Part Time Employee ---");
 
@@ -146,7 +151,7 @@ public class Ui {
 
                         break; // Exit the switch
 
-                    // --- CASE 4: DISPLAY ALL RECORDS ---
+                    //  Case 4: Display All Records
                     case 4:
                         System.out.println("\n--- Displaying All Records ---");
                         if (universityRecords.isEmpty()) {
@@ -159,13 +164,12 @@ public class Ui {
                         }
                         break; // Exit the switch
 
-                    // --- CASE 5: EXIT ---
+                    //  Case 5: Exit
                     case 5:
                         System.out.println("Exiting system. Goodbye.");
-                        scanner.close(); // Close the scanner
                         return; // Exit the main method (and the program)
 
-                    // --- DEFAULT: HANDLE INVALID NUMBERS ---
+                    // DEFAULT: HANDLE INVALID NUMBERS
                     default:
                         System.out.println("Error: Invalid choice. Please enter a number between 1 and 5.");
                 }

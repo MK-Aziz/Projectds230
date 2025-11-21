@@ -1,14 +1,13 @@
 public abstract class Person {
 
-    /*
-    This is the parent class Person which all other subclasses inherit from
-
-     */
+    // This is the parent class Person which all other subclasses inherit from
 
     //Those are the attributes as requested by the project for name and id
     private String name;
     private int id;
 
+
+    // Constructor to initialize the object's attributes.
     public Person(String name, int id){
 
         this.name = name;
