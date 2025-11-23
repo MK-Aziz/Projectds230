@@ -3,9 +3,9 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-
 //This is our interface class where we handle the user choice, add persons and show records
 public class Ui {
+
 
     public static void main(String[] args) {
 
@@ -15,16 +15,16 @@ public class Ui {
 
         // 4 Sample examples with course names added to the array as requested
         universityRecords.add(new Student("Abdulaziz Nadreen", 240011833, "DS230", 99));
-        universityRecords.add(new Student("Jehad", 240040810, "SCI101", 100));
-        universityRecords.add(new Student("Rakan", 240050050, "MATH150", 92));
-        universityRecords.add(new Student("Noor", 240689785, "DS231", 49));
+        universityRecords.add(new Student("Jehad Al Ghamdi", 240040810, "SCI101", 100));
+        universityRecords.add(new Student("Rakan Aldarwish", 240050050, "MATH150", 92));
+        universityRecords.add(new Student("Noor AlJohani", 240123567, "DS231", 49));
 
 
 
         // Create one scanner for all user input
         Scanner scanner = new Scanner(System.in);
 
-        // The main menu loop
+        // The main menu loop that keeps looping until option 5. exist is choosen
         while (true) {
 
             //Printing the options
@@ -39,13 +39,12 @@ public class Ui {
             // We utilize "try catch" to catch invalid input
             try {
 
-
+                // Scanner to take user input
                 int choice = scanner.nextInt();
                 scanner.nextLine(); // Consume the newline
 
                 /*
-                 Handle the user's choice
-                For each choice we will invoke the classes and the methods (inheritance)
+                 Handle the user's choice For each choice we will invoke the classes and the methods (inheritance)
                 */
                 switch (choice) {
 
@@ -58,12 +57,12 @@ public class Ui {
 
                         System.out.print("Enter ID: ");
                         int student_Id = scanner.nextInt();
-                        scanner.nextLine(); // Consume newline
+                        scanner.nextLine(); //  New line after entering ID
 
                         System.out.print("Enter course: ");
                         String course = scanner.nextLine();
 
-                        // Validation loop for grade
+                        // Validation loop for grade will repeat until entering valid grade
                         double grade ;
                         do {
                             System.out.print("Enter grade (0-100): ");
@@ -80,9 +79,8 @@ public class Ui {
                         break; // Exit the switch
 
                     // Case 2 for adding Full time Employee
-
                     case 2:
-                        // I modified here to add the full time employee string instead of add
+                        // Add the full time employee
                         System.out.println("\n--- Add Full Time Employee ---");
 
                         System.out.print("Enter name: ");
@@ -92,7 +90,7 @@ public class Ui {
                         int ft_id = scanner.nextInt();
 
 
-                        // This is to validate a positive non zero salary
+                        // This is to validate a positive non zero
                         double salary;
                         do {
                             System.out.print("Enter Monthly Salary: ");
@@ -104,7 +102,7 @@ public class Ui {
                         } while ( salary < 0);
 
 
-                        scanner.nextLine();
+                        scanner.nextLine(); // Remove the leftover newline
 
                         universityRecords.add(new FullTimeEmployee(ft_name, ft_id, salary));
                         System.out.println("Full time employee added!");
@@ -143,7 +141,7 @@ public class Ui {
                                 hoursWorked = scanner.nextInt();
                             }
                     }   while (hoursWorked < 0);
-                        scanner.nextLine();
+                        scanner.nextLine(); // Remove the leftover newline
 
 
                         universityRecords.add(new PartTimeEmployee(pt_name, pt_id, hourlyRate,hoursWorked));
@@ -158,6 +156,7 @@ public class Ui {
                             System.out.println("No records found.");
                         } else {
                             // Loop through the list and print details
+                            // This is important in using Polymorphism
                             for (Person person : universityRecords) {
                                 person.displayDetails(); // Polymorphism in action!
                             }
@@ -169,7 +168,7 @@ public class Ui {
                         System.out.println("Exiting system. Goodbye.");
                         return; // Exit the main method (and the program)
 
-                    // DEFAULT: HANDLE INVALID NUMBERS
+                    // DEFAULT: To handle any Invalid Numbers
                     default:
                         System.out.println("Error: Invalid choice. Please enter a number between 1 and 5.");
                 }
