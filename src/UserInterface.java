@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 //This is our interface class where we handle the user choice, add persons and show records
-public class Ui {
+public class UserInterface {
 
 
     public static void main(String[] args) {
